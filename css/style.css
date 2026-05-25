@@ -1,3 +1,1021 @@
-h1 {
-  color: red;
+:root {
+  --vermelho: #e24b4a;
+  --vermelho-escuro: #c43a39;
+  --amarelo: #ef9f27;
+  --amarelo-claro: #faeeda;
+  --amarelo-escuro: #ba7517;
+  --branco: #ffffff;
+  --cinza-fundo: #f5f5f5;
+  --cinza-texto: #666;
+  --sombra: 0 4px 16px rgba(0, 0, 0, 0.09);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--cinza-fundo);
+  color: #333;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  background-color: var(--branco);
+  border-bottom: 3px solid var(--vermelho);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 65px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  cursor: pointer;
+  height: 100px;
+  width: auto;
+}
+
+.links-nav {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.links-nav li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+  display: block;
+  cursor: pointer;
+}
+
+.links-nav li a:hover {
+  background-color: var(--amarelo-claro);
+  color: var(--amarelo-escuro);
+}
+
+.links-nav li a.ativo {
+  background-color: var(--vermelho);
+  color: var(--branco);
+}
+
+.botao-carrinho {
+  position: relative;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 22px;
+  border: none;
+  background: transparent;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+
+.botao-carrinho:hover {
+  background-color: var(--amarelo-claro);
+}
+
+.contador {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: var(--amarelo);
+  color: #412402;
+  font-size: 10px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* ===== PÁGINAS ===== */
+.pagina {
+  display: none;
+}
+
+.pagina.ativa {
+  display: block;
+}
+
+/* ===== DESTAQUE (hero grande) ===== */
+.destaque {
+  background: linear-gradient(
+    135deg,
+    var(--vermelho) 0%,
+    #c43a39 45%,
+    var(--amarelo) 100%
+  );
+  color: var(--branco);
+  text-align: center;
+  padding: 65px 40px;
+}
+
+.destaque h1 {
+  font-family: "Fredoka One", cursive;
+  font-size: 46px;
+  margin-bottom: 12px;
+}
+
+.destaque p {
+  font-size: 17px;
+  max-width: 500px;
+  margin: 0 auto 28px;
+  opacity: 0.95;
+}
+
+.botao-destaque {
+  background-color: var(--branco);
+  color: var(--vermelho);
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.botao-destaque:hover {
+  background-color: var(--amarelo-claro);
+  transform: translateY(-2px);
+}
+
+/* ===== DESTAQUE MINI  ===== */
+.destaque-mini {
+  background: linear-gradient(135deg, var(--vermelho) 0%, var(--amarelo) 100%);
+  color: var(--branco);
+  text-align: center;
+  padding: 40px;
+}
+
+.destaque-mini h1 {
+  font-family: "Fredoka One", cursive;
+  font-size: 36px;
+  margin-bottom: 6px;
+}
+
+.destaque-mini p {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* ===== CONTEÚDO ===== */
+.conteudo {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 40px;
+}
+
+.titulo-secao {
+  font-family: "Fredoka One", cursive;
+  font-size: 28px;
+  color: var(--vermelho);
+  margin-bottom: 6px;
+}
+
+.subtitulo-secao {
+  font-size: 13px;
+  color: var(--cinza-texto);
+  margin-bottom: 10px;
+}
+
+.divisor {
+  width: 48px;
+  height: 4px;
+  background-color: var(--amarelo);
+  border-radius: 4px;
+  margin-bottom: 28px;
+}
+
+/* ===== GRADE DE CARDS ===== */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+/* ===== CARD DE PRODUTO ===== */
+.card {
+  background-color: var(--branco);
+  border-radius: 16px;
+  box-shadow: var(--sombra);
+  width: calc(33.33% - 16px);
+  overflow: hidden;
+  transition:
+    transform 0.22s,
+    box-shadow 0.22s;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.13);
+}
+
+/* ===== IMAGEM DO CARD ===== */
+.imagem-card {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: var(--amarelo-claro);
+}
+
+.imagem-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.etiqueta-card {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--vermelho);
+  color: var(--branco);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.corpo-card {
+  padding: 16px 18px;
+}
+
+.nome-card {
+  font-family: "Fredoka One", cursive;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+
+.descricao-card {
+  font-size: 13px;
+  color: var(--cinza-texto);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.rodape-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preco-card {
+  font-family: "Fredoka One", cursive;
+  font-size: 22px;
+  color: var(--vermelho);
+}
+
+.unidade-card {
+  font-size: 11px;
+  color: var(--cinza-texto);
+  font-weight: 600;
+}
+
+.botao-adicionar {
+  background-color: var(--amarelo);
+  color: #412402;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+
+.botao-adicionar:hover {
+  background-color: var(--amarelo-escuro);
+  color: var(--branco);
+  transform: scale(1.05);
+}
+
+/* ===== CARD DE COMBO ===== */
+.card-combo {
+  background-color: var(--branco);
+  border-radius: 18px;
+  box-shadow: var(--sombra);
+  width: calc(50% - 11px);
+  overflow: hidden;
+  transition:
+    transform 0.22s,
+    box-shadow 0.22s;
+  position: relative;
+  border-top: 4px solid var(--vermelho);
+}
+
+.card-combo:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.13);
+}
+
+.etiqueta-combo {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-color: var(--amarelo);
+  color: #412402;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.card-combo .corpo-card {
+  padding: 20px 22px;
+}
+
+.card-combo .nome-card {
+  font-size: 22px;
+}
+
+.itens-combo {
+  font-size: 12px;
+  color: var(--cinza-texto);
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+
+.itens-combo span {
+  background-color: var(--amarelo-claro);
+  color: var(--amarelo-escuro);
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin: 2px 2px 2px 0;
+  display: inline-block;
+}
+
+.rodape-combo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preco-riscado {
+  font-size: 12px;
+  color: #aaa;
+  text-decoration: line-through;
+  margin-right: 6px;
+}
+
+.preco-combo {
+  font-family: "Fredoka One", cursive;
+  font-size: 26px;
+  color: var(--vermelho);
+}
+
+.economia-combo {
+  font-size: 11px;
+  color: #2a9d2a;
+  font-weight: 700;
+  display: block;
+}
+
+.botao-combo {
+  background-color: var(--vermelho);
+  color: var(--branco);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+
+.botao-combo:hover {
+  background-color: var(--vermelho-escuro);
+  transform: scale(1.04);
+}
+
+/* ===== SEÇÃO DE INFORMAÇÕES ===== */
+.secao-info {
+  background-color: var(--branco);
+  border-radius: 20px;
+  box-shadow: var(--sombra);
+  padding: 36px 40px;
+  margin-top: 10px;
+}
+
+.titulo-info {
+  font-family: "Fredoka One", cursive;
+  font-size: 24px;
+  color: var(--vermelho);
+  margin-bottom: 20px;
+}
+
+.container-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card-info {
+  flex: 1;
+  min-width: 200px;
+  background-color: var(--cinza-fundo);
+  border-radius: 14px;
+  padding: 20px;
+  border-left: 4px solid var(--amarelo);
+}
+
+.icone-info {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.card-info h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.card-info p,
+.card-info a {
+  font-size: 13px;
+  color: var(--cinza-texto);
+  line-height: 1.7;
+  text-decoration: none;
+  display: block;
+}
+
+.card-info a:hover {
+  color: var(--vermelho);
+}
+
+/* ===== AVISO DE UNIDADE ===== */
+.aviso-unidade {
+  background-color: var(--amarelo-claro);
+  border-left: 4px solid var(--amarelo);
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 13px;
+  color: var(--amarelo-escuro);
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+  background-color: #2b2b2b;
+  color: #ccc;
+  text-align: center;
+  padding: 22px;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+footer span {
+  color: var(--amarelo);
+  font-weight: 700;
+}
+
+/* ===== FUNDO ESCURO (abre com o carrinho) ===== */
+.fundo-escuro {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.fundo-escuro.aberto {
+  display: flex;
+}
+
+/* ===== PAINEL DO CARRINHO ===== */
+.painel-carrinho {
+  background: var(--branco);
+  width: 420px;
+  max-width: 95vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+  animation: deslizar 0.25s ease;
+}
+
+@keyframes deslizar {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.cabecalho-carrinho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px;
+  border-bottom: 2px solid #f0f0f0;
+  background: var(--vermelho);
+  color: var(--branco);
+}
+
+.cabecalho-carrinho h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.botao-fechar {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--branco);
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botao-fechar:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.lista-carrinho {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.aviso-vazio {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--cinza-texto);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.aviso-vazio span {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.card-produto-carrinho {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--branco);
+  border-radius: 12px;
+  border: 1.5px solid #f0f0f0;
+  margin-bottom: 10px;
+}
+
+/* ===== IMAGEM DO PRODUTO NO CARRINHO ===== */
+.foto-produto {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--amarelo-claro);
+  flex-shrink: 0;
+}
+
+.foto-produto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.info-produto {
+  flex: 1;
+}
+
+.nome-produto {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.preco-unitario {
+  font-size: 12px;
+  color: var(--cinza-texto);
+}
+
+.controles-quantidade {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.botao-quantidade {
+  background: var(--amarelo-claro);
+  border: none;
+  color: var(--amarelo-escuro);
+  font-size: 16px;
+  font-weight: 700;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botao-quantidade:hover {
+  background: var(--amarelo);
+  color: #412402;
+}
+
+.numero-quantidade {
+  font-size: 14px;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+}
+
+.subtotal-produto {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--vermelho);
+  text-align: right;
+}
+
+.botao-remover {
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px;
+  display: block;
+  margin-top: 4px;
+}
+
+.botao-remover:hover {
+  color: var(--vermelho);
+}
+
+.rodape-carrinho {
+  padding: 16px 22px;
+  border-top: 2px solid #f0f0f0;
+  background: #fafafa;
+}
+
+.resumo {
+  margin-bottom: 14px;
+}
+
+.linha-resumo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--cinza-texto);
+  margin-bottom: 4px;
+}
+
+.linha-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: 700;
+  color: #333;
+  padding-top: 10px;
+  border-top: 1.5px solid #e0e0e0;
+  margin-top: 8px;
+}
+
+.linha-total span:last-child {
+  color: var(--vermelho);
+}
+
+.botao-finalizar {
+  width: 100%;
+  background-color: var(--vermelho);
+  color: var(--branco);
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background 0.2s;
+}
+
+.botao-finalizar:hover {
+  background-color: var(--vermelho-escuro);
+}
+
+.botao-esvaziar {
+  width: 100%;
+  background: #f0f0f0;
+  color: #888;
+  border: none;
+  padding: 9px;
+  border-radius: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.botao-esvaziar:hover {
+  background: #e0e0e0;
+  color: #555;
+}
+
+/* ===== FORMULÁRIO ===== */
+.fundo-formulario {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1100;
+  align-items: center;
+  justify-content: center;
+}
+
+.fundo-formulario.aberto {
+  display: flex;
+}
+
+.caixa-formulario {
+  background: var(--branco);
+  border-radius: 18px;
+  width: 460px;
+  max-width: 94vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+}
+
+.caixa-formulario h2 {
+  font-family: "Fredoka One", cursive;
+  font-size: 22px;
+  color: var(--vermelho);
+  margin-bottom: 6px;
+}
+
+.subtitulo-formulario {
+  font-size: 13px;
+  color: var(--cinza-texto);
+  margin-bottom: 20px;
+}
+
+.lista-produtos-pedido {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 16px;
+  border: 1.5px solid #f0f0f0;
+}
+
+.linha-produto-pedido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.linha-produto-pedido:last-child {
+  border-bottom: none;
+}
+
+.linha-produto-pedido span {
+  color: #555;
+}
+
+.linha-produto-pedido strong {
+  color: var(--vermelho);
+}
+
+.linha-total-pedido {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding: 10px 14px;
+  background: var(--amarelo-claro);
+  border-radius: 10px;
+  color: #333;
+}
+
+.linha-total-pedido span:last-child {
+  color: var(--vermelho);
+}
+
+/* ===== CAMPOS DO FORMULÁRIO ===== */
+.linha-campos {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.linha-campos .campo {
+  flex: 1;
+}
+
+.campo {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.campo label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #444;
+}
+
+.campo input,
+.campo textarea {
+  padding: 10px 13px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  border-color: var(--vermelho);
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.botao-enviar {
+  width: 100%;
+  background-color: var(--vermelho);
+  color: var(--branco);
+  border: none;
+  padding: 13px;
+  border-radius: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+
+.botao-enviar:hover {
+  background-color: var(--vermelho-escuro);
+}
+
+.botao-voltar {
+  width: 100%;
+  background: #f0f0f0;
+  color: #888;
+  border: none;
+  padding: 9px;
+  border-radius: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.botao-voltar:hover {
+  background: #e0e0e0;
+  color: #555;
+}
+
+.mensagem-sucesso {
+  display: none;
+  margin-top: 16px;
+  background-color: #d4edda;
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: #155724;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ===== RESPONSIVIDADE — CELULAR ===== */
+@media (max-width: 768px) {
+  nav {
+    padding: 12px 16px;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .links-nav {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .links-nav li a {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .destaque {
+    padding: 40px 20px;
+  }
+
+  .destaque h1 {
+    font-size: 28px;
+  }
+
+  .destaque p {
+    font-size: 14px;
+  }
+
+  .destaque-mini {
+    padding: 28px 20px;
+  }
+
+  .destaque-mini h1 {
+    font-size: 26px;
+  }
+
+  .conteudo {
+    padding: 28px 16px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card-combo {
+    width: 100%;
+  }
+
+  .secao-info {
+    padding: 24px 16px;
+  }
+
+  .card-info {
+    min-width: 100%;
+  }
+
+  .painel-carrinho {
+    width: 100%;
+  }
+
+  .caixa-formulario {
+    padding: 20px 16px;
+  }
+
+  .linha-campos {
+    flex-direction: column;
+  }
+}
+
+/* ===== RESPONSIVIDADE — TABLET ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .card {
+    width: calc(50% - 11px);
+  }
+
+  .conteudo {
+    padding: 36px 24px;
+  }
 }

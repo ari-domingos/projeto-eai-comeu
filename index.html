@@ -1,17 +1,524 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eai Comeu?</title>
+  <title>Eai, Comeu?</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <h1>teste</h1>
 
-  <script src=" ./js/script.js"></script>
+  <!-- BARRA DE NAVEGAÇÃO -->
+  <nav>
+    <img class="logo" onclick="irParaPagina('inicio')" src="./img/Logo_Salgado.png" alt="Logo da 'Eai, Comeu?'">
+
+    <ul class="links-nav">
+      <li><a id="nav-inicio" class="ativo" onclick="irParaPagina('inicio')">Início</a></li>
+      <li><a id="nav-salgados" onclick="irParaPagina('salgados')">Salgados</a></li>
+      <li><a id="nav-doces" onclick="irParaPagina('doces')">Doces</a></li>
+      <li><a id="nav-combos" onclick="irParaPagina('combos')">Kits de Festa</a></li>
+      <li><button class="botao-carrinho" onclick="abrirCarrinho()" aria-label="Abrir carrinho">🛒<span class="contador" id="contador">0</span></button></li>
+    </ul>
+  </nav>
+
+  <!-- ===== PÁGINA INÍCIO ===== -->
+  <div id="pagina-inicio" class="pagina ativa">
+    <div class="destaque">
+      <h1>🎉 Kits de Festa Eai, Comeu?</h1>
+      <p>Salgados e doces fresquinhos feitos com carinho para a sua festa no Recife!</p>
+      <button class="botao-destaque" onclick="irParaPagina('combos')">Ver Kits de Festa ↓</button>
+    </div>
+
+    <div class="conteudo">
+
+      <!-- SALGADOS EM DESTAQUE -->
+      <h2 class="titulo-secao">🥟 Salgados em Destaque</h2>
+      <p class="subtitulo-secao">Vendido por unidade — fresquinhos no dia do pedido</p>
+      <div class="divisor"></div>
+
+      <div class="container">
+        <div class="card">
+          <div class="imagem-card"><img src="./img/coxinha.png" alt="Coxinha de Frango"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Coxinha de Frango</div>
+            <div class="descricao-card">Massa fina e crocante, recheio cremoso de frango desfiado.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 3,50</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/coxinha.png','Coxinha de Frango',3.50)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/enroladinho.png" alt="Enroladinho de Salsicha"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Enroladinho de Salsicha</div>
+            <div class="descricao-card">Enroladinho assado, massa leve com salsicha temperada.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 2,80</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/enroladinho.png','Enroladinho de Salsicha',2.80)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/empadinha.png" alt="Empada de Palmito"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Empada de Palmito</div>
+            <div class="descricao-card">Empada artesanal com recheio de palmito, bem temperado.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 4,00</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/empadinha.png','Empada de Palmito',4.00)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br><br>
+
+      <!-- DOCES EM DESTAQUE -->
+      <h2 class="titulo-secao">🍬 Doces em Destaque</h2>
+      <p class="subtitulo-secao">Vendido por unidade — feitos com muito carinho</p>
+      <div class="divisor"></div>
+
+      <div class="container">
+        <div class="card">
+          <span class="etiqueta-card">Favorito</span>
+          <div class="imagem-card"><img src="./img/brigadeiro.png" alt="Brigadeiro Gourmet"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Brigadeiro Gourmet</div>
+            <div class="descricao-card">Brigadeiro cremoso com chocolate belga, envolto em granulado crocante.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 3,00</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/brigadeiro.png','Brigadeiro Gourmet',3.00)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/cajuzinho.png" alt="Cajuzinho"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Cajuzinho</div>
+            <div class="descricao-card">Cajuzinho tradicional de amendoim, macio e irresistível.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 2,50</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/cajuzinho.png','Cajuzinho',2.50)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/bem_casado.png" alt="Bem-casado"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Bem-casado</div>
+            <div class="descricao-card">Bem-casado com recheio de doce de leite, embalado individualmente.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 4,50</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/bem_casado.png','Bem-casado',4.50)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br><br>
+
+      <!-- KITS EM DESTAQUE -->
+      <h2 class="titulo-secao">🎁 Kits de Festa em Destaque</h2>
+      <p class="subtitulo-secao">Combos com 50 unidades — melhor preço por unidade</p>
+      <div class="divisor"></div>
+
+      <div class="container">
+        <div class="card-combo">
+          <span class="etiqueta-combo">🔥 Mais pedido</span>
+          <div class="corpo-card">
+            <div class="nome-card">Kit Festa Completo</div>
+            <div class="itens-combo">
+              <span>50 Coxinhas</span><span>50 Brigadeiros</span><span>50 Enroladinhos</span>
+            </div>
+            <div class="rodape-combo">
+              <div>
+                <span class="preco-riscado">R$ 329,70</span>
+                <span class="preco-combo">R$ 269,90</span>
+                <span class="economia-combo">Você economiza R$ 59,80!</span>
+              </div>
+              <button class="botao-combo" onclick="adicionar('./img/coxinha.png','Kit Festa Completo',269.90)">Pedir Kit</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-combo">
+          <div class="corpo-card">
+            <div class="nome-card">Kit Doces & Salgados</div>
+            <div class="itens-combo">
+              <span>50 Empadas</span><span>50 Cajuzinhos</span><span>50 Bem-casados</span>
+            </div>
+            <div class="rodape-combo">
+              <div>
+                <span class="preco-riscado">R$ 349,00</span>
+                <span class="preco-combo">R$ 289,90</span>
+                <span class="economia-combo">Você economiza R$ 59,10!</span>
+              </div>
+              <button class="botao-combo" onclick="adicionar('./img/empadinha.png','Kit Doces & Salgados',289.90)">Pedir Kit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br><br>
+
+      <!-- INFO -->
+      <div class="secao-info">
+        <div class="titulo-info">📍 Encontre a Gente no Recife</div>
+        <div class="container-info">
+          <div class="card-info">
+            <div class="icone-info">📍</div>
+            <h4>Endereço</h4>
+            <p>Rua da Aurora, xxx<br>Boa Vista — Recife, PE<br>CEP: xxxxx-xxx</p>
+          </div>
+          <div class="card-info">
+            <div class="icone-info">📞</div>
+            <h4>Telefone & WhatsApp</h4>
+            <a href="#">(81) 9 xxxx-xxxx</a>
+            <a href="#">(81) 9 xxxx-xxxx</a>
+            <p style="margin-top:4px;font-size:11px;">Seg–Sáb: 8h às 18h</p>
+          </div>
+          <div class="card-info">
+            <div class="icone-info">📧</div>
+            <h4>E-mail</h4>
+            <a href="#">contato@eaicomeu.com.br</a>
+            <a href="#">pedidos@eaicomeu.com.br</a>
+          </div>
+          <div class="card-info">
+            <div class="icone-info">📱</div>
+            <h4>Redes Sociais</h4>
+            <a href="#">@eaicomeu.recife</a>
+            <a href="#">facebook.com/eaicomeurecife</a>
+            <p style="margin-top:4px;font-size:11px;">Pedidos com 48h de antecedência</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 <span>Eai, Comeu? Kits de Festa</span> — Recife, PE 🦀 Feito com ❤️</p>
+    </footer>
+  </div>
+
+  <!-- ===== PÁGINA SALGADOS ===== -->
+  <div id="pagina-salgados" class="pagina">
+    <div class="destaque-mini">
+      <h1>🥟 Salgados</h1>
+      <p>Vendidos por unidade — peça a quantidade que quiser!</p>
+    </div>
+
+    <div class="conteudo">
+      <div class="aviso-unidade">💡 Todos os salgados são vendidos por unidade. Peça a quantidade desejada no formulário de pedido.</div>
+      <h2 class="titulo-secao">Nossos Salgados</h2>
+      <div class="divisor"></div>
+
+      <div class="container">
+        <div class="card">
+          <div class="imagem-card"><img src="./img/coxinha.png" alt="Coxinha de Frango"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Coxinha de Frango</div>
+            <div class="descricao-card">Massa fina e crocante, recheio cremoso de frango desfiado com catupiry.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 3,50</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/coxinha.png','Coxinha de Frango',3.50)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/enroladinho.png" alt="Enroladinho de Salsicha"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Enroladinho de Salsicha</div>
+            <div class="descricao-card">Assado, massa macia e leve com salsicha temperada por dentro.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 2,80</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/enroladinho.png','Enroladinho de Salsicha',2.80)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/empadinha.png" alt="Empada de Palmito"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Empada de Palmito</div>
+            <div class="descricao-card">Massa artesanal, recheio de palmito com molho branco cremoso.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 4,00</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/empadinha.png','Empada de Palmito',4.00)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/risole.png" alt="Rissole de Queijo"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Rissole de Queijo</div>
+            <div class="descricao-card">Rissole frito, massa crocante com muito queijo derretido por dentro.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 3,20</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/risole.png','Rissole de Queijo',3.20)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/kibre.png" alt="Kibre"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Kibre</div>
+            <div class="descricao-card">Kibre crocante por fora, recheio suculento e bem temperado por dentro.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 3,50</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/kibre.png','Kibre',3.50)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 <span>Eai, Comeu? Kits de Festa</span> — Recife, PE 🦀 Feito com ❤️</p>
+    </footer>
+  </div>
+
+  <!-- ===== PÁGINA DOCES ===== -->
+  <div id="pagina-doces" class="pagina">
+    <div class="destaque-mini">
+      <h1>🍬 Doces</h1>
+      <p>Vendidos por unidade — fresquinhos e feitos no dia!</p>
+    </div>
+
+    <div class="conteudo">
+      <div class="aviso-unidade">💡 Todos os doces são vendidos por unidade. Peça a quantidade desejada no formulário de pedido.</div>
+      <h2 class="titulo-secao">Nossos Doces</h2>
+      <div class="divisor"></div>
+
+      <div class="container">
+        <div class="card">
+          <span class="etiqueta-card">Favorito</span>
+          <div class="imagem-card"><img src="./img/brigadeiro.png" alt="Brigadeiro Gourmet"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Brigadeiro Gourmet</div>
+            <div class="descricao-card">Brigadeiro com chocolate belga, granulado crocante, derrete na boca.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 3,00</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/brigadeiro.png','Brigadeiro Gourmet',3.00)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/cajuzinho.png" alt="Cajuzinho"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Cajuzinho</div>
+            <div class="descricao-card">Cajuzinho tradicional de amendoim, macio e irresistível.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 2,50</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/cajuzinho.png','Cajuzinho',2.50)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/bem_casado.png" alt="Bem-casado"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Bem-casado</div>
+            <div class="descricao-card">Bem-casado com doce de leite, embalado individualmente com fita.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 4,50</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/bem_casado.png','Bem-casado',4.50)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/beijinho.png" alt="Beijinho de Coco"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Beijinho de Coco</div>
+            <div class="descricao-card">Doce de coco com cravo espetado, bem cremoso e saboroso.</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 2,50</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/beijinho.png','Beijinho de Coco',2.50)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/surpresa_de_uva.png" alt="Surpresa de Uva"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Surpresa de Uva</div>
+            <div class="descricao-card">Docinho de uva com granulado colorido, uma surpresa a cada mordida!</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 2,80</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/surpresa_de_uva.png','Surpresa de Uva',2.80)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imagem-card"><img src="./img/brigadeiro_de_morango.png" alt="Brigadeiro de Morango"></div>
+          <div class="corpo-card">
+            <div class="nome-card">Brigadeiro de Morango</div>
+            <div class="descricao-card">Brigadeiro de morango com granulado colorido, a criançada ama!</div>
+            <div class="rodape-card">
+              <div><span class="preco-card">R$ 3,00</span><br><span class="unidade-card">por unidade</span></div>
+              <button class="botao-adicionar" onclick="adicionar('./img/brigadeiro_de_morango.png','Brigadeiro de Morango',3.00)">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 <span>Eai, Comeu? Kits de Festa</span> — Recife, PE 🦀 Feito com ❤️</p>
+    </footer>
+  </div>
+
+  <!-- ===== PÁGINA COMBOS ===== -->
+  <div id="pagina-combos" class="pagina">
+    <div class="destaque-mini">
+      <h1>🎉 Kits de Festa</h1>
+      <p>Combos com 50 unidades — preço especial e muito mais praticidade!</p>
+    </div>
+
+    <div class="conteudo">
+      <h2 class="titulo-secao">Nossos Kits</h2>
+      <p class="subtitulo-secao">Todos os kits têm 50 unidades. Pedidos com 48h de antecedência.</p>
+      <div class="divisor"></div>
+
+      <div class="container">
+        <div class="card-combo">
+          <span class="etiqueta-combo">🔥 Mais pedido</span>
+          <div class="corpo-card">
+            <div class="nome-card">Kit Festa Completo</div>
+            <div class="itens-combo"><span>50 Coxinhas</span><span>50 Brigadeiros</span><span>50 Enroladinhos</span></div>
+            <div class="rodape-combo">
+              <div><span class="preco-riscado">R$ 329,70</span><span class="preco-combo">R$ 269,90</span><span class="economia-combo">Você economiza R$ 59,80!</span></div>
+              <button class="botao-combo" onclick="adicionar('./img/coxinha.png','Kit Festa Completo',269.90)">Pedir Kit</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-combo">
+          <div class="corpo-card">
+            <div class="nome-card">Kit Clássico Recifense</div>
+            <div class="itens-combo"><span>50 Empadas</span><span>50 Cajuzinhos</span><span>50 Kibres</span></div>
+            <div class="rodape-combo">
+              <div><span class="preco-riscado">R$ 340,00</span><span class="preco-combo">R$ 279,90</span><span class="economia-combo">Você economiza R$ 60,10!</span></div>
+              <button class="botao-combo" onclick="adicionar('./img/empadinha.png','Kit Clássico Recifense',279.90)">Pedir Kit</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-combo">
+          <span class="etiqueta-combo">✨ Novo</span>
+          <div class="corpo-card">
+            <div class="nome-card">Kit Infantil</div>
+            <div class="itens-combo"><span>50 Enroladinhos</span><span>50 Brigadeiros de Morango</span><span>50 Beijinhos</span></div>
+            <div class="rodape-combo">
+              <div><span class="preco-riscado">R$ 310,00</span><span class="preco-combo">R$ 249,90</span><span class="economia-combo">Você economiza R$ 60,10!</span></div>
+              <button class="botao-combo" onclick="adicionar('./img/brigadeiro_de_morango.png','Kit Infantil',249.90)">Pedir Kit</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-combo">
+          <div class="corpo-card">
+            <div class="nome-card">Kit Premium</div>
+            <div class="itens-combo"><span>50 Empadas de Palmito</span><span>50 Brigadeiros Gourmet</span><span>50 Bem-casados</span></div>
+            <div class="rodape-combo">
+              <div><span class="preco-riscado">R$ 375,00</span><span class="preco-combo">R$ 309,90</span><span class="economia-combo">Você economiza R$ 65,10!</span></div>
+              <button class="botao-combo" onclick="adicionar('./img/empadinha.png','Kit Premium',309.90)">Pedir Kit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 <span>Eai, Comeu? Kits de Festa</span> — Recife, PE 🦀 Feito com ❤️</p>
+    </footer>
+  </div>
+
+  <!-- ===== PAINEL DO CARRINHO ===== -->
+  <div class="fundo-escuro" id="fundo-escuro" onclick="fecharAoClicarFora(event)">
+    <div class="painel-carrinho">
+      <div class="cabecalho-carrinho">
+        <h2>🛒 Meu Carrinho</h2>
+        <button class="botao-fechar" onclick="fecharCarrinho()">✕</button>
+      </div>
+
+      <div class="lista-carrinho" id="lista-carrinho">
+        <div class="aviso-vazio" id="aviso-vazio">
+          <span>🛒</span>
+          Seu carrinho está vazio.<br>Adicione itens para continuar!
+        </div>
+      </div>
+
+      <div class="rodape-carrinho" id="rodape-carrinho" style="display:none">
+        <div class="resumo">
+          <div class="linha-resumo"><span>Subtotal</span><span id="valor-subtotal">R$ 0,00</span></div>
+          <div class="linha-resumo"><span>Itens</span><span id="quantidade-itens">0 unidades</span></div>
+          <div class="linha-total"><span>Total</span><span id="valor-total">R$ 0,00</span></div>
+        </div>
+        <button class="botao-finalizar" onclick="abrirFormulario()">Finalizar Pedido 🎉</button>
+        <button class="botao-esvaziar" onclick="esvaziarCarrinho()">Limpar carrinho</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FORMULÁRIO DE FINALIZAÇÃO DO PEDIDO ===== -->
+  <div class="fundo-formulario" id="formulario-pedido">
+    <div class="caixa-formulario">
+      <h2>📋 Finalizar Pedido</h2>
+      <p class="subtitulo-formulario">Confira seus itens e preencha seus dados para enviar o pedido.</p>
+
+      <div class="lista-produtos-pedido" id="lista-produtos-pedido"></div>
+
+      <div class="linha-total-pedido">
+        <span>Total do pedido</span>
+        <span id="total-pedido">R$ 0,00</span>
+      </div>
+
+      <div class="linha-campos">
+        <div class="campo">
+          <label>Nome completo</label>
+          <input type="text" id="campo-nome" placeholder="Seu nome completo">
+        </div>
+      </div>
+
+      <div class="linha-campos">
+        <div class="campo">
+          <label>WhatsApp</label>
+          <input type="text" id="campo-whatsapp" placeholder="(81) 9 0000-0000">
+        </div>
+        <div class="campo">
+          <label>Data do evento</label>
+          <input type="date" id="campo-data">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Observações</label>
+        <textarea id="campo-observacoes" placeholder="Restrições alimentares, endereço de entrega, etc."></textarea>
+      </div>
+
+      <button class="botao-enviar" onclick="enviarPedido()">Enviar Pedido 🎉</button>
+      <button class="botao-voltar" onclick="fecharFormulario()">Voltar ao carrinho</button>
+
+      <div class="mensagem-sucesso" id="mensagem-sucesso">
+        ✅ Pedido enviado! Entraremos em contato pelo WhatsApp em breve. Obrigado!
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
