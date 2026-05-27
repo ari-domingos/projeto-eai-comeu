@@ -250,6 +250,33 @@ function irParaPagina(pagina) {
   }
   document.getElementById("nav-" + pagina).classList.add("ativo");
 
+  // Troca paleta de cores e logo conforme a página
+  let root = document.documentElement;
+  let logo = document.querySelector(".logo");
+
+  if (pagina === "doces") {
+    root.style.setProperty("--vermelho", "#e91e8c");
+    root.style.setProperty("--vermelho-escuro", "#c4167a");
+    root.style.setProperty("--amarelo", "#4fc3f7");
+    root.style.setProperty("--amarelo-claro", "#e3f6fd");
+    root.style.setProperty("--amarelo-escuro", "#0277bd");
+    logo.src = "./img/Logo_Doce.png";
+  } else if (pagina === "combos") {
+    root.style.setProperty("--vermelho", "#4fc3f7");
+    root.style.setProperty("--vermelho-escuro", "#0277bd");
+    root.style.setProperty("--amarelo", "#f97316");
+    root.style.setProperty("--amarelo-claro", "#fff3e8");
+    root.style.setProperty("--amarelo-escuro", "#c2500a");
+    logo.src = "./img/Logo_Doce.png";
+  } else {
+    root.style.setProperty("--vermelho", "#e24b4a");
+    root.style.setProperty("--vermelho-escuro", "#c43a39");
+    root.style.setProperty("--amarelo", "#ef9f27");
+    root.style.setProperty("--amarelo-claro", "#faeeda");
+    root.style.setProperty("--amarelo-escuro", "#ba7517");
+    logo.src = "./img/Logo_Salgado.png";
+  }
+
   // Volta para o topo
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
