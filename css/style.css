@@ -475,6 +475,10 @@ nav {
   color: var(--vermelho);
 }
 
+.links-info {
+  list-style: none;
+}
+
 /* ===== AVISO DE UNIDADE ===== */
 .aviso-unidade {
   background-color: var(--amarelo-claro);

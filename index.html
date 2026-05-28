@@ -42,6 +42,7 @@
 
       <div class="container">
         <div class="card">
+          <span class="etiqueta-card">🔥 Favorito</span>
           <div class="imagem-card"><img src="./img/coxinha.png" alt="Coxinha de Frango"></div>
           <div class="corpo-card">
             <div class="nome-card">Coxinha de Frango</div>
@@ -87,7 +88,7 @@
 
       <div class="container">
         <div class="card">
-          <span class="etiqueta-card">Favorito</span>
+          <span class="etiqueta-card">🔥 Favorito</span>
           <div class="imagem-card"><img src="./img/brigadeiro.png" alt="Brigadeiro Gourmet"></div>
           <div class="corpo-card">
             <div class="nome-card">Brigadeiro Gourmet</div>
@@ -170,33 +171,39 @@
 
       <br><br>
 
-      <!-- INFO -->
+      <!-- INFOS -->
       <div class="secao-info">
         <div class="titulo-info">📍 Encontre a Gente no Recife</div>
         <div class="container-info">
           <div class="card-info">
             <div class="icone-info">📍</div>
             <h4>Endereço</h4>
-            <p>Rua da Aurora, xxx<br>Boa Vista — Recife, PE<br>CEP: xxxxx-xxx</p>
+            <a href="https://maps.app.goo.gl/vWYscA6hNur8axaX8" target="_blank">Rua da Aurora, xxx<br>Boa Vista — Recife, PE<br>CEP: xxxxx-xxx</a>
           </div>
           <div class="card-info">
             <div class="icone-info">📞</div>
             <h4>Telefone & WhatsApp</h4>
-            <a href="#">(81) 9 xxxx-xxxx</a>
-            <a href="#">(81) 9 xxxx-xxxx</a>
-            <p style="margin-top:4px;font-size:11px;">Seg–Sáb: 8h às 18h</p>
+            <ul class="links-info">
+              <li><a href="tel:81999999999" target="_blank">(81) 9 xxxx-xxxx</a></li>
+              <li><a href="tel:81999999999" target="_blank">(81) 9 xxxx-xxxx</a></li>
+            </ul>
+            <p style="margin-top:4px;font-size:11px;">Seg-Sáb: 8h às 18h</p>
           </div>
           <div class="card-info">
             <div class="icone-info">📧</div>
             <h4>E-mail</h4>
-            <a href="#">contato@eaicomeu.com.br</a>
-            <a href="#">pedidos@eaicomeu.com.br</a>
+            <ul class="links-info">
+              <li><a href="mailto:contato@eaicomeu.com.br" target="_blank">contato@eaicomeu.com.br</a></li>
+              <li><a href="mailto:pedidos@eaicomeu.com.br" target="_blank">pedidos@eaicomeu.com.br</a></li>
+            </ul>
           </div>
           <div class="card-info">
             <div class="icone-info">📱</div>
             <h4>Redes Sociais</h4>
-            <a href="#">@eaicomeu.recife</a>
-            <a href="#">facebook.com/eaicomeurecife</a>
+            <ul class="links-info">
+              <li><a href="https://eaicomeu.com" target="_blank">@eaicomeu.recife</a></li>
+              <li><a href="https://eaicomeu.com" target="_blank">facebook.com/eaicomeurecife</a></li>
+            </ul>
             <p style="margin-top:4px;font-size:11px;">Pedidos com 48h de antecedência</p>
           </div>
         </div>
@@ -222,6 +229,7 @@
 
       <div class="container">
         <div class="card">
+          <span class="etiqueta-card">🔥 Favorito</span>
           <div class="imagem-card"><img src="./img/coxinha.png" alt="Coxinha de Frango"></div>
           <div class="corpo-card">
             <div class="nome-card">Coxinha de Frango</div>
@@ -302,7 +310,7 @@
 
       <div class="container">
         <div class="card">
-          <span class="etiqueta-card">Favorito</span>
+          <span class="etiqueta-card">🔥 Favorito</span>
           <div class="imagem-card"><img src="./img/brigadeiro.png" alt="Brigadeiro Gourmet"></div>
           <div class="corpo-card">
             <div class="nome-card">Brigadeiro Gourmet</div>
@@ -476,47 +484,49 @@
 
   <!-- ===== FORMULÁRIO DE FINALIZAÇÃO DO PEDIDO ===== -->
   <div class="fundo-formulario" id="formulario-pedido">
-    <div class="caixa-formulario">
-      <h2>📋 Finalizar Pedido</h2>
-      <p class="subtitulo-formulario">Confira seus itens e preencha seus dados para enviar o pedido.</p>
+    <form>
+      <div class="caixa-formulario">
+        <h2>📋 Finalizar Pedido</h2>
+        <p class="subtitulo-formulario">Confira seus itens e preencha seus dados para enviar o pedido.</p>
 
-      <div class="lista-produtos-pedido" id="lista-produtos-pedido"></div>
+        <div class="lista-produtos-pedido" id="lista-produtos-pedido"></div>
 
-      <div class="linha-total-pedido">
-        <span>Total do pedido</span>
-        <span id="total-pedido">R$ 0,00</span>
-      </div>
+        <div class="linha-total-pedido">
+          <span>Total do pedido</span>
+          <span id="total-pedido">R$ 0,00</span>
+        </div>
 
-      <div class="linha-campos">
+        <div class="linha-campos">
+          <div class="campo">
+            <label>Nome completo</label>
+            <input type="text" id="campo-nome" placeholder="Seu nome completo">
+          </div>
+        </div>
+
+        <div class="linha-campos">
+          <div class="campo">
+            <label>WhatsApp</label>
+            <input type="text" id="campo-whatsapp" placeholder="(81) 9 0000-0000">
+          </div>
+          <div class="campo">
+            <label>Data do evento</label>
+            <input type="date" id="campo-data">
+          </div>
+        </div>
+
         <div class="campo">
-          <label>Nome completo</label>
-          <input type="text" id="campo-nome" placeholder="Seu nome completo">
+          <label>Observações</label>
+          <textarea id="campo-observacoes" placeholder="Restrições alimentares, endereço de entrega, etc."></textarea>
+        </div>
+
+        <button class="botao-enviar" onclick="enviarPedido()">Enviar Pedido 🎉</button>
+        <button class="botao-voltar" onclick="fecharFormulario()">Voltar ao carrinho</button>
+
+        <div class="mensagem-sucesso" id="mensagem-sucesso">
+          ✅ Pedido enviado! Entraremos em contato pelo WhatsApp em breve. Obrigado!
         </div>
       </div>
-
-      <div class="linha-campos">
-        <div class="campo">
-          <label>WhatsApp</label>
-          <input type="text" id="campo-whatsapp" placeholder="(81) 9 0000-0000">
-        </div>
-        <div class="campo">
-          <label>Data do evento</label>
-          <input type="date" id="campo-data">
-        </div>
-      </div>
-
-      <div class="campo">
-        <label>Observações</label>
-        <textarea id="campo-observacoes" placeholder="Restrições alimentares, endereço de entrega, etc."></textarea>
-      </div>
-
-      <button class="botao-enviar" onclick="enviarPedido()">Enviar Pedido 🎉</button>
-      <button class="botao-voltar" onclick="fecharFormulario()">Voltar ao carrinho</button>
-
-      <div class="mensagem-sucesso" id="mensagem-sucesso">
-        ✅ Pedido enviado! Entraremos em contato pelo WhatsApp em breve. Obrigado!
-      </div>
-    </div>
+    </form>
   </div>
 
   <script src="./js/script.js"></script>
